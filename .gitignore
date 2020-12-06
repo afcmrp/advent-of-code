@@ -1,0 +1,12 @@
+# Editor files
+.vscode
+
+# Python generated files
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Input files
+*.txt
