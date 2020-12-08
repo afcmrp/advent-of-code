@@ -37,7 +37,7 @@ def main():
     _, acc1 = run(instructions)
     print("Part 1: " + str(acc1))
     acc2 = terminate_instructions(instructions)
-    print("Part 1: " + str(acc2))
+    print("Part 2: " + str(acc2))
 
 if __name__ == "__main__":
     main()
