@@ -1,3 +1,3 @@
-Advent of Code 2020 Python solutions
+Advent of Code Python solutions
 
-https://adventofcode.com/2020
+https://adventofcode.com/
