@@ -1,4 +1,5 @@
 import re
+from aocd import lines
 
 PASSWORD_REGEXP = r"^(\d+)-(\d+) ([a-zA-Z]+): ([a-zA-Z]+)$"
 MIN = 1
@@ -13,9 +14,7 @@ def valid_password2(char, idx1, idx2, password):
     return (password[idx1-1] == char) ^ (password[idx2-1] == char)
 
 def main():
-    with open("2.txt") as password_file:
-        passwords_raw = password_file.readlines()
-    passwords = [p.replace("\n", "") for p in passwords_raw]
+    passwords = lines
     valid1 = 0
     valid2 = 0
     for password_str in passwords:

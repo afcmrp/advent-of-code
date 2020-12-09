@@ -1,9 +1,4 @@
-
-def get_boarding_passes():
-    with open("5.txt") as boarding_file:
-        boarding_passes_raw = boarding_file.readlines()
-    boarding_passes = [s.replace("\n", "") for s in boarding_passes_raw]
-    return boarding_passes
+from aocd import lines
 
 def decode(code):
     l = 0
@@ -20,10 +15,9 @@ def get_id(row, col):
     return 8 * row + col
 
 def main():
-    passes = get_boarding_passes()
     highest_id = 0
     seat_ids = []
-    for code in passes:
+    for code in lines:
         row = decode(code[:7])
         col = decode(code[7:])
         seat_id = get_id(row, col)

@@ -1,7 +1,4 @@
-def get_input():
-    with open("8.txt") as input_file:
-        input_raw = input_file.readlines()
-    return [s.replace("\n", "") for s in input_raw]
+from aocd import lines
 
 def run(instructions):
     executed = [False for _ in instructions]
@@ -23,17 +20,17 @@ def run(instructions):
     return False, accumulator
 
 def terminate_instructions(instructions):
-    for instruction_idx, instruction in enumerate(instructions):
+    for idx, instruction in enumerate(instructions):
         if instruction[0:3] in ["jmp", "nop"]:
             f = "jmp" if "jmp" in instruction else "nop"
             t = "nop" if "jmp" in instruction else "jmp"
-            new = [i.replace(f, t) if idx == instruction_idx else i for idx, i in enumerate(instructions)]
+            new = [i.replace(f, t) if idx_n == idx else i for idx_n, i in enumerate(instructions)]
             terminates, acc = run(new)
             if terminates:
                 return acc
 
 def main():
-    instructions = get_input()
+    instructions = lines
     _, acc1 = run(instructions)
     print("Part 1: " + str(acc1))
     acc2 = terminate_instructions(instructions)

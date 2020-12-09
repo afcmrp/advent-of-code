@@ -1,9 +1,7 @@
-TAKEN = []
+from aocd import lines
 
 def get_bags():
-    with open("7.txt") as input_file:
-        input_raw = input_file.readlines()
-    rules = [s.replace("\n", "") for s in input_raw]
+    rules = lines
     bags = {}
     bags_inv = {}
     for line in rules:
@@ -24,17 +22,17 @@ def get_bags():
                 bags_inv[b] = [bag]
     return bags_inv, bags
 
-def bag_carriers(target_bag, bags):
-    global TAKEN
+def bag_carriers(target_bag, bags, taken=None):
+    taken = taken or []
     if target_bag not in bags:
         return 0
     carriers = 0
     content = bags[target_bag]
     for bag in content:
-        if bag in TAKEN:
+        if bag in taken:
             continue
-        TAKEN.append(bag)
-        carriers += bag_carriers(bag, bags) + 1
+        taken.append(bag)
+        carriers += bag_carriers(bag, bags, taken) + 1
     return carriers
 
 def bag_amount(target_bag, bags):

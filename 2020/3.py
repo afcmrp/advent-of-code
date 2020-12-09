@@ -1,10 +1,5 @@
 import math
-
-def get_map():
-    with open("3.txt") as map_file:
-        map_raw = map_file.readlines()
-    map_str = [line.replace("\n", "") for line in map_raw]
-    return map_str
+from aocd import lines
 
 def trees_collided(tree_map, slope):
     collided = 0
@@ -20,7 +15,7 @@ def trees_collided(tree_map, slope):
     return collided
 
 def main():
-    tree_map = get_map()
+    tree_map = lines
     answer1 = trees_collided(tree_map, (3, 1))
     print("Part 1: " + str(answer1))
     slopes = [

@@ -1,11 +1,9 @@
+from aocd import lines
 
 def get_groups():
-    with open("6.txt") as q_file:
-        q_raw = q_file.readlines()
-    q_lines = [s.replace("\n", "") for s in q_raw]
     groups = []
     group = []
-    for line in q_lines:
+    for line in lines:
         if not line:
             groups.append(group)
             group = []
@@ -15,7 +13,7 @@ def get_groups():
     return groups
 
 def unique_q(group):
-    return list(set([q for p in group for q in p]))
+    return list({q for p in group for q in p})
 
 def all_q(group):
     q_sum = 0

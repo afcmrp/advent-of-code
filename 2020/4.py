@@ -1,4 +1,5 @@
 import re
+from aocd import lines
 
 HGT_REGEX = r"^(\d+)(cm|in)$"
 HCL_REGEX = r"^#[a-f0-9]{6}$"
@@ -24,13 +25,13 @@ def valid_hgt(hgt):
     return False
 
 def valid_hcl(hcl):
-    return re.match(HCL_REGEX, hcl) != None
+    return re.match(HCL_REGEX, hcl) is not None
 
 def valid_ecl(ecl):
     return ecl in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
 
 def valid_pid(pid):
-    return re.match(PID_REGEX, pid) != None
+    return re.match(PID_REGEX, pid) is not None
 
 REQUIRED_FIELDS = {
     "byr": valid_byr,
@@ -43,12 +44,9 @@ REQUIRED_FIELDS = {
 }
 
 def get_passports():
-    with open("4.txt") as passport_file:
-        passports_raw = passport_file.readlines()
-    passport_str = [s.replace("\n", "") for s in passports_raw]
     passports = []
     passport = {}
-    for line in passport_str:
+    for line in lines:
         if not line:
             passports.append(passport)
             passport = {}
