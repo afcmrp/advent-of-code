@@ -1,9 +1,6 @@
 from math import sqrt
 from aocd import lines
 
-# with open("2020/20.txt") as f:
-#     lines = f.readlines()
-#     lines = [l.replace("\n", "") for l in lines]
 N = 10
 TILES = {int(lines[i][5:-1]): lines[i+1:i+N+1] for i in range(0, len(lines), N+2)}
 SIZE = int(sqrt(len(TILES)))
