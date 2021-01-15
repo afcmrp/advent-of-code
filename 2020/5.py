@@ -1,35 +1,20 @@
 from aocd import lines
 
-def decode(code):
-    l = 0
-    h = 2 ** len(code) - 1
-    for c in code:
-        m = l + int((h-l)/2)
-        if c in ["F", "L"]:
-            h = m
-        elif c in ["B", "R"]:
-            l = m
-    return h
+DECODE = {
+    "B": "1",
+    "R": "1",
+    "F": "0",
+    "L": "0"
+}
 
-def get_id(row, col):
-    return 8 * row + col
+def get_id(seat):
+    return int("".join(DECODE[c] for c in seat), 2)
 
-def main():
-    highest_id = 0
-    seat_ids = []
-    for code in lines:
-        row = decode(code[:7])
-        col = decode(code[7:])
-        seat_id = get_id(row, col)
-        seat_ids.append(seat_id)
-        if seat_id > highest_id:
-            highest_id = seat_id
-    seat_ids.sort()
-    print("Part 1: " + str(highest_id))
-    for i, sid in enumerate(seat_ids):
-        if sid + 1 != seat_ids[i+1]:
-            print("Part 2: " + str(sid+1))
-            break
+seat_ids = [get_id(seat) for seat in lines]
+seat_ids.sort()
 
-if __name__ == "__main__":
-    main()
+print("Part 1:", max(seat_ids))
+for i, sid in enumerate(seat_ids):
+    if sid + 1 != seat_ids[i+1]:
+        print("Part 2:", sid+1)
+        break

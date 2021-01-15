@@ -25,16 +25,10 @@ def terminate_instructions(instructions):
             f = "jmp" if "jmp" in instruction else "nop"
             t = "nop" if "jmp" in instruction else "jmp"
             new = [i.replace(f, t) if idx_n == idx else i for idx_n, i in enumerate(instructions)]
-            terminates, acc = run(new)
+            terminates, accumulator = run(new)
             if terminates:
-                return acc
+                return accumulator
 
-def main():
-    instructions = lines
-    _, acc1 = run(instructions)
-    print("Part 1: " + str(acc1))
-    acc2 = terminate_instructions(instructions)
-    print("Part 2: " + str(acc2))
-
-if __name__ == "__main__":
-    main()
+_, acc = run(lines)
+print("Part 1:", acc)
+print("Part 2:", terminate_instructions(lines))

@@ -71,12 +71,6 @@ def valid_passport2(passport):
                 return False
     return True
 
-def main():
-    passports = get_passports()
-    valid1 = sum([valid_passport1(p) for p in passports])
-    print("Part 1: " + str(valid1))
-    valid2 = sum([valid_passport2(p) for p in passports])
-    print("Part 2: " + str(valid2))
-
-if __name__ == "__main__":
-    main()
+PASSPORTS = get_passports()
+print("Part 1:", sum(valid_passport1(p) for p in PASSPORTS))
+print("Part 2:", sum(valid_passport2(p) for p in PASSPORTS))

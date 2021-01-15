@@ -58,6 +58,6 @@ def navigate2(instructions):
     return abs(pos_x) + abs(pos_y)
 
 distance1 = navigate1(lines)
-print("Part 1: " + str(distance1))
+print("Part 1:", distance1)
 distance2 = navigate2(lines)
-print("Part 2: " + str(distance2))
+print("Part 2:", distance2)

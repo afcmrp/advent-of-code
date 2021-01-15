@@ -8,5 +8,5 @@ def get_num(start, stop):
     return num
 
 starting_nums = [int(x) for x in lines[0].split(",")]
-print("Part 1: " + str(get_num(starting_nums, 2020)))
-print("Part 2: " + str(get_num(starting_nums, 30000000)))
+print("Part 1:", get_num(starting_nums, 2020))
+print("Part 2:", get_num(starting_nums, 30000000))

@@ -1,18 +1,18 @@
 from aocd import lines
 
-timestamp = int(lines[0])
-bus_ids = [(int(b), idx) for idx, b in enumerate(lines[1].split(",")) if b != "x"]
+TIMESTAMP = int(lines[0])
+BUS_IDS = [(int(b), idx) for idx, b in enumerate(lines[1].split(",")) if b != "x"]
 
 def earliest_depart():
-    departures = [b - (timestamp % b) for b, _ in bus_ids]
+    departures = [b - (TIMESTAMP % b) for b, _ in BUS_IDS]
     d_min = min(departures)
     b_idx = departures.index(d_min)
-    return d_min * bus_ids[b_idx][0]
+    return d_min * BUS_IDS[b_idx][0]
 
 def find_t():
     t = 0
     step = 1
-    for bus, offset in bus_ids:
+    for bus, offset in BUS_IDS:
         ts = t
         while True:
             ts += step
@@ -22,5 +22,5 @@ def find_t():
                 break
     return t
 
-print("Part 1: " + str(earliest_depart()))
-print("Part 2: " + str(find_t()))
+print("Part 1:", earliest_depart())
+print("Part 2:", find_t())

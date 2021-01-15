@@ -48,12 +48,6 @@ def stabilize(seats, fun):
             return sum(r.count("#") for r in seats)
         seats = next_seats
 
-def main():
-    seats = [[s for s in l] for l in lines]
-    answer_1 = stabilize(seats, next_seat1)
-    print("Part 1: " + str(answer_1))
-    answer_2 = stabilize(seats, next_seat2)
-    print("Part 2: " + str(answer_2))
-
-if __name__ == "__main__":
-    main()
+SEATS = [[s for s in l] for l in lines]
+print("Part 1:", stabilize(SEATS, next_seat1))
+print("Part 2:", stabilize(SEATS, next_seat2))

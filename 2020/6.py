@@ -38,12 +38,6 @@ def get_qsum2(groups):
         q_sum += all_q(group)
     return q_sum
 
-def main():
-    groups = get_groups()
-    q_sum1 = get_qsum1(groups)
-    print("Part 1: " + str(q_sum1))
-    q_sum2 = get_qsum2(groups)
-    print("Part 2: " + str(q_sum2))
-
-if __name__ == "__main__":
-    main()
+GROUPS = get_groups()
+print("Part 1:", get_qsum1(GROUPS))
+print("Part 2:", get_qsum2(GROUPS))

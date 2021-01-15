@@ -41,12 +41,6 @@ def bag_amount(target_bag, bags):
         amount += bag[0] * bag_amount(bag[1], bags)
     return amount
 
-def main():
-    bags1, bags2 = get_bags()
-    answer1 = bag_carriers("shiny gold", bags1)
-    print("Part 1: " + str(answer1))
-    answer2 = bag_amount("shiny gold", bags2) - 1
-    print("Part 2: " + str(answer2))
-
-if __name__ == "__main__":
-    main()
+bags1, bags2 = get_bags()
+print("Part 1:", bag_carriers("shiny gold", bags1))
+print("Part 2:", bag_amount("shiny gold", bags2) - 1)

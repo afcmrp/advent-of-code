@@ -26,13 +26,8 @@ def find_contiguous(num, target):
             idx2 += 1
     return contiguous
 
-def main():
-    xmas_data = numbers
-    first_invalid = find_first_invalid(xmas_data, 25)
-    print("Part 1: " + str(first_invalid))
-    contiguous = find_contiguous(xmas_data, first_invalid)
-    sum2 = min(contiguous) + max(contiguous)
-    print("Part 2: " + str(sum2))
-
-if __name__ == "__main__":
-    main()
+first_invalid = find_first_invalid(numbers, 25)
+print("Part 1:", first_invalid)
+cont = find_contiguous(numbers, first_invalid)
+sum2 = min(cont) + max(cont)
+print("Part 2:", sum2)

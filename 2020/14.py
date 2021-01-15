@@ -52,5 +52,5 @@ def part2(instructions):
     return sum(mem.values())
 
 inst = get_instructions()
-print("Part 1: " + str(part1(inst)))
-print("Part 2: " + str(part2(inst)))
+print("Part 1:", part1(inst))
+print("Part 2:", part2(inst))

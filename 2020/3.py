@@ -1,5 +1,12 @@
-import math
 from aocd import lines
+
+SLOPES = [
+    (1, 1),
+    (3, 1),
+    (5, 1),
+    (7, 1),
+    (1, 2),
+]
 
 def trees_collided(tree_map, slope):
     collided = 0
@@ -14,23 +21,10 @@ def trees_collided(tree_map, slope):
             collided += 1
     return collided
 
-def main():
-    tree_map = lines
-    answer1 = trees_collided(tree_map, (3, 1))
-    print("Part 1: " + str(answer1))
-    slopes = [
-        (1, 1),
-        (3, 1),
-        (5, 1),
-        (7, 1),
-        (1, 2),
-    ]
-    collided2 = []
-    for slope in slopes:
-        col = trees_collided(tree_map, slope)
-        collided2.append(col)
-    answer2 = math.prod(collided2)
-    print("Part 2: " + str(answer2))
+print("Part 1:", trees_collided(lines, (3, 1)))
 
-if __name__ == "__main__":
-    main()
+prod = 1
+for s in SLOPES:
+    prod *= trees_collided(lines, s)
+
+print("Part 2:", prod)
